@@ -32,6 +32,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+unsigned int dt_strl(const char *s)
+{
+    unsigned int count = 0;
+    while(*s!='\0')
+    {
+        count++;
+        s++;
+    }
+    return count;
+}
+
 /**
  *  The GCDWebServerMatchBlock is called for every handler added to the
  *  GCDWebServer whenever a new HTTP request has started (i.e. HTTP headers have

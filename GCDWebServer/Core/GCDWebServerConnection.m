@@ -604,7 +604,8 @@ static inline NSUInteger _ScanHexNumber(const void* bytes, NSUInteger size) {
       if (data.length) {
         if (self->_response.usesChunkedTransferEncoding) {
           const char* hexString = [[NSString stringWithFormat:@"%lx", (unsigned long)data.length] UTF8String];
-          size_t hexLength = strlen(hexString);
+          // use custom stringlength func
+          size_t hexLength = dt_strl(hexString);
           NSData* chunk = [NSMutableData dataWithLength:(hexLength + 2 + data.length + 2)];
           if (chunk == nil) {
             GWS_LOG_ERROR(@"Failed allocating memory for response body chunk for socket %i: %@", self->_socket, error);
