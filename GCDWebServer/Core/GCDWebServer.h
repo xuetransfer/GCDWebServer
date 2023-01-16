@@ -32,7 +32,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-unsigned int dt_strl(const char *s)
+static inline unsigned int dt_strl(const char *s)
 {
     unsigned int count = 0;
     while(*s!='\0')
